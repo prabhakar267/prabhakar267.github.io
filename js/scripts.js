@@ -1,39 +1,3 @@
-batmanComment = `
-                     Tb.          Tb.                                
-                     :$$b.        $$$b.                              
-                     :$$$$b.      :$$$$b.                            
-                     :$$$$$$b     :$$$$$$b                           
-                      $$$$$$$b     $$$$$$$b                          
-                      $$$$$$$$b    :$$$$$$$b                         
-                      :$$$$$$$$b---^$$$$$$$$b                        
-                      :$$$$$$$$$b        ""^Tb                       
-                       $$$$$$$$$$b    __...__\`.                      
-                       $$$$$$$$$$$b.g$$$$$$$$$pb                     
-                       $$$$$$$$$$$$$$$$$$$$$$$$$b                    
-                       $$$$$$$$$$$$$$$$$$$$$$$$$$b                   
-                       :$$$$$$$$$$$$$$$$$$$$$$$$$$;                  
-                       :$$$$$$$$$$$$$^T$$$$$$$$$$P;                  
-                       :$$$$$$$$$$$$$b  "^T$$$$P' :                  
-                       :$$$$$$$$$$$$$$b._.g$$$$$p.db                 
-                       :$$$$$$$$$$$$$$$$$$$$$$$$$$$$;                
-                       :$$$$$$$$"""^^T$$$$$$$$$$$$P^;                
-                       :$$$$$$$$       ""^^T$$$P^'  ;                
-                       :$$$$$$$$    ."       "     ;                
-                       $$$$$$$$;   /                :                
-                       $$$$$$$$;           .----,   :                
-                       $$$$$$$$;         ,"          ;               
-                       $$$$$$$$$p.                   |               
-                      :$$$$$$$$$$$$p.                :               
-                      :$$$$$$$$$$$$$$$p.            .'               
-                      :$$$$$$$$$$$$$$$$$$p...___..-"                 
-                      $$$$$$$$$$$$$$$$$$$$$$$$$;                     
-   .db.          bug  $$$$$$$$$$$$$$$$$$$$$$$$$$                     
-  d$$$$bp.            $$$$$$$$$$$$$$$$$$$$$$$$$$;                    
- d$$$$$$$$$$pp..__..gg$$$$$$$$$$$$$$$$$$$$$$$$$$$                    
-d$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$p._            .gp. 
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$p._.ggp._.d$$$$b`;
-
-console.log(batmanComment);
 $(document).ready(function() {
     var $container = $('.blog-grid');
 
@@ -60,10 +24,7 @@ $(document).ready(function() {
                 return box_width;
             }
         });
-        $container.css({
-            'visibility': 'visible',
-            'display': 'none'
-        }).parent().removeClass('loading');
+
     });
 });
 
@@ -71,41 +32,3 @@ $(document).ready(function() {
 $(window).load(function() {
     $(".preload").fadeOut("slow");;
 });
-
-$(document).ready(function() {
-    $(document).on("click", "#startupsheader", function() {
-        toggledisplaystate('#startupsgrid');
-    })
-
-    $(document).on("click", "#internshipsheader", function() {
-        toggledisplaystate('#internshipsgrid');
-    })
-
-    $(document).on("click", "#societiesheader", function() {
-        toggledisplaystate('#societiesgrid');
-    })
-
-    $(document).on("click", "#backendprojectsheader", function() {
-        toggledisplaystate('#backendprojectsgrid');
-    })
-
-    $(document).on("click", "#frontendprojectsheader", function() {
-        toggledisplaystate('#frontendprojectsgrid');
-    })
-
-    $(document).on("click", "#technicalachievementsheader", function() {
-        toggledisplaystate('#technicalachievementsgrid');
-    })
-
-    $(document).on("click", "#technologiesknownheader", function() {
-        toggledisplaystate('#technologiesknowngrid');
-    })
-})
-
-function toggledisplaystate(x) {
-    if ($(x).is(":visible")) {
-        $(x).hide(500);
-    } else {
-        $(x).show(500);
-    }
-}
