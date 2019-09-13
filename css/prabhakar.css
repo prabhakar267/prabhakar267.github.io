@@ -105,3 +105,11 @@ body{
 .experience_box {
 	padding-bottom: 20px;
 }
+
+#publicationsTab div {
+	cursor: pointer;
+}
+
+#publicationsTab div span {
+	text-decoration: underline;
+}
