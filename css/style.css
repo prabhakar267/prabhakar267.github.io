@@ -55,3 +55,8 @@ a:hover {
     background-color: transparent;
     font-size: 14px;
 }
+
+#view-all-publications-btn {
+    cursor: pointer;
+    font-size: 13px;
+}
