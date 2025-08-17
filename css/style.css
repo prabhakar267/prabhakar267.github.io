@@ -5,10 +5,23 @@
     --text-primary: #1a1a1a;
     --text-secondary: #666666;
     --text-muted: #999999;
-    --accent-primary: #2563eb;
-    --accent-secondary: #1e40af;
+    --accent-primary: #0395de;
+    --accent-secondary: #0284c7;
     --border-color: #e5e5e5;
     --hover-bg: #f8f9fa;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #262626;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-muted: #737373;
+    --accent-primary: #0395de;
+    --accent-secondary: #0284c7;
+    --border-color: #404040;
+    --hover-bg: #262626;
 }
 
 * {
@@ -42,6 +55,123 @@ body {
     padding: 24px;
     margin: 32px 0;
     text-align: center;
+    position: relative;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+}
+
+.peel-corner {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: visible;
+}
+
+/* Main page corner - always shows current theme */
+.peel-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0 8px 0 40px;
+    transform-origin: bottom left;
+    transform: rotate(0deg);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 3;
+}
+
+/* Curled shadow/underside of the current page */
+.peel-corner::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.2) 0%, 
+        rgba(0, 0, 0, 0.1) 50%, 
+        transparent 100%);
+    border-radius: 0 6px 0 38px;
+    transform-origin: bottom left;
+    transform: rotate(0deg);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 2;
+}
+
+/* The opposite theme revealed underneath - always opposite of current theme */
+.peel-corner .peel-underside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    border: 1px solid #404040;
+    border-radius: 0 8px 0 40px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* When in dark mode, show light theme underneath */
+[data-theme="dark"] .peel-corner .peel-underside {
+    background: #ffffff;
+    border-color: #e5e5e5;
+}
+
+/* In light mode, show dark theme underneath */
+[data-theme="light"] .peel-corner .peel-underside,
+:root .peel-corner .peel-underside {
+    background: #1a1a1a;
+    border-color: #404040;
+}
+
+/* Hover effects */
+.peel-corner:hover::before {
+    transform: rotate(-15deg) translate(3px, -3px);
+    box-shadow: 
+        2px -2px 12px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.peel-corner:hover::after {
+    transform: rotate(-15deg) translate(4px, -2px);
+    opacity: 0.8;
+}
+
+.peel-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 16px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    z-index: 4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .peel-icon {
+    color: #fbbf24;
+}
+
+.peel-corner:hover .peel-icon {
+    transform: rotate(-15deg) translate(2px, -4px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .name-title {
