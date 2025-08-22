@@ -368,3 +368,67 @@ body {
 .hidden-item {
     display: none;
 }
+
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: 48px;
+    padding: 24px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        margin-top: 32px;
+        padding: 20px 0;
+    }
+    
+    .footer-content {
+        padding: 0 16px;
+    }
+    
+    .footer-links {
+        gap: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .footer-link {
+        font-size: 0.8125rem;
+    }
+    
+    .footer-text {
+        font-size: 0.75rem;
+    }
+}

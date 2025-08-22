@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // View all publications functionality
 document.getElementById('view-all-publications-btn').addEventListener('click', function() {
-    const hiddenItems = document.querySelectorAll('.hidden-item');
+    const sectionCard = this.closest('.section-card');
+    const hiddenItems = sectionCard.querySelectorAll('.hidden-item');
     const titleElement = document.getElementById('publications-title');
     const isExpanded = this.textContent.includes('View all');
     
@@ -111,6 +112,44 @@ document.getElementById('view-all-publications-btn').addEventListener('click', f
         this.textContent = '(Show less)';
     } else {
         titleElement.textContent = 'Publication Highlights';
+        this.textContent = '(View all)';
+    }
+});
+
+// View all patents functionality
+document.getElementById('view-all-patents-btn').addEventListener('click', function() {
+    const sectionCard = this.closest('.section-card');
+    const hiddenItems = sectionCard.querySelectorAll('.hidden-item');
+    const titleElement = document.getElementById('patents-title');
+    const isExpanded = this.textContent.includes('View all');
+    
+    // Add smooth transition
+    hiddenItems.forEach(item => {
+        if (isExpanded) {
+            item.style.display = 'block';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, 10);
+        } else {
+            item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 300);
+        }
+    });
+    
+    // Change title and button text
+    if (isExpanded) {
+        titleElement.textContent = 'All Patents';
+        this.textContent = '(Show less)';
+    } else {
+        titleElement.textContent = 'Patents';
         this.textContent = '(View all)';
     }
 });
