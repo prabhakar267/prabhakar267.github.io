@@ -339,6 +339,11 @@ body {
     line-height: 1.5;
 }
 
+.github-stars-badge {
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
 
 @media (max-width: 768px) {
     .content-grid {
