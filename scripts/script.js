@@ -83,7 +83,7 @@ document.getElementById('view-all-publications-btn').addEventListener('click', f
     const sectionCard = this.closest('.section-card');
     const hiddenItems = sectionCard.querySelectorAll('.hidden-item');
     const titleElement = document.getElementById('publications-title');
-    const isExpanded = this.textContent.includes('View all');
+    const isExpanded = this.textContent.includes('Show all');
     
     // Add smooth transition
     hiddenItems.forEach(item => {
@@ -111,8 +111,8 @@ document.getElementById('view-all-publications-btn').addEventListener('click', f
         titleElement.textContent = 'Publications';
         this.textContent = '(Show less)';
     } else {
-        titleElement.textContent = 'Publication Highlights';
-        this.textContent = '(View all)';
+        titleElement.textContent = 'Recent Publications';
+        this.textContent = '(Show all)';
     }
 });
 
@@ -121,7 +121,7 @@ document.getElementById('view-all-patents-btn').addEventListener('click', functi
     const sectionCard = this.closest('.section-card');
     const hiddenItems = sectionCard.querySelectorAll('.hidden-item');
     const titleElement = document.getElementById('patents-title');
-    const isExpanded = this.textContent.includes('View all');
+    const isExpanded = this.textContent.includes('Show all');
     
     // Add smooth transition
     hiddenItems.forEach(item => {
@@ -146,10 +146,10 @@ document.getElementById('view-all-patents-btn').addEventListener('click', functi
     
     // Change title and button text
     if (isExpanded) {
-        titleElement.textContent = 'All Patents';
+        titleElement.textContent = 'Patents';
         this.textContent = '(Show less)';
     } else {
-        titleElement.textContent = 'Patents';
-        this.textContent = '(View all)';
+        titleElement.textContent = 'Recent Patents';
+        this.textContent = '(Show all)';
     }
 });
