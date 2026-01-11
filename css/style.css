@@ -302,7 +302,7 @@ body {
     font-weight: 500;
     line-height: 1.4;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .item-link:hover .item-title {
@@ -335,7 +335,6 @@ body {
 .project-description {
     color: var(--text-secondary);
     font-size: 0.875rem;
-    margin-top: 8px;
     line-height: 1.5;
 }
 
